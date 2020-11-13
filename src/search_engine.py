@@ -9,7 +9,3 @@ def stemming(sentence):
     for w in words: 
         hasil_stem.append(ps.stem(w))
     return hasil_stem
-
-kata = "Programmers program with programming languanges"
-hasil = stemming(kata)
-print(hasil)
