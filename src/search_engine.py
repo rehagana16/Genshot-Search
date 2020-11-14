@@ -70,4 +70,4 @@ def panjang_vektor(vektor) :
 def cosine_similarity(vektor1,vektor2) :
     similarity = (perkalian_dot(vektor1,vektor2))/(panjang_vektor(vektor1)*panjang_vektor(vektor2))
     return(similarity)
-
+    

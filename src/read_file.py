@@ -14,7 +14,3 @@ def text_read(filename):
     content = file.read()
     file.close()
     return(content)
-
-file = input()
-textcontoh = text_read(file)
-print(textcontoh)
