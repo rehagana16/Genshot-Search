@@ -71,12 +71,3 @@ def cosine_similarity(vektor1,vektor2) :
     similarity = (perkalian_dot(vektor1,vektor2))/(panjang_vektor(vektor1)*panjang_vektor(vektor2))
     return(similarity)
 
-            
-def read_file(filename) :
-    file = open(filename,"r")
-    content = my_file.read()
-    content_list = content.split(",")
-    file.close()
-    print(content_list)
-
-    
