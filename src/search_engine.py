@@ -1,3 +1,4 @@
+import numpy as ny
 from nltk.stem import PorterStemmer 
 from nltk.tokenize import word_tokenize 
 
@@ -45,6 +46,18 @@ def vectorizer(isi) :
         if (posisi != -1) :
             jumlah[posisi] += 1
     return jumlah
+
+# Calculate similarity with cosine similarity
+similarity = {}
+
+for i in range(len(stemmed_sentence)) :
+	if (ny.linalg.norm(x[i]) * ny.linalg.norm(vectorized_query) != 0)
+		similarity[i] = ny.dot(vectorized_sentence[i]) / (ny.linalg.norm(vectorized_sentence[i]) * ny.linalg.norm(vectorized_query))
+	else :
+		similarity[i] = 0
+
+# Sorting
+sorted_similarity = sorted(similarity.items(), reverse = True)
             
 
 
