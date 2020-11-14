@@ -36,7 +36,7 @@ def upload() :
 		document_content = search_engine.vectorizer(search_engine.make_key(hasil_stem),content)
 		array_nama.append([filename.rsplit('.',1)[0],document_content])
 		nama_file.append(filename.rsplit('.',1)[0])
-		isi_content.append(content)
+		isi_content.append(hasil_stem)
 	return render_template("upload_complete.html", name = array_nama)
 
 @app.route('/search',methods=["GET","POST"])   # link 127.0.0.1:5000/ 
@@ -54,7 +54,7 @@ def search() :
 			key_content = search_engine.make_key(isi_content[x])
 			vektor_result = search_engine.vectorizer(key_content,word)
 			similarity.append(search_engine.cosine_similarity(vektor_result,vektor_konten[x]))
-		hasil.append([nama_file,vektor_konten,similarity])
+			hasil.append([nama_file[x],vektor_konten[x],similarity])
 		if result:
 			pass
 	return render_template("search.html",result=hasil)
