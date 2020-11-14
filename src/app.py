@@ -13,7 +13,9 @@ isi_content = []
 array_nama = []
 list_content = []
 key_all = []
-key_query = []
+key_query_table = []
+input_query = []
+
 
 @app.route("/")
 def index():
@@ -48,20 +50,22 @@ def upload() :
 @app.route('/search',methods=["GET","POST"])   # link 127.0.0.1:5000/ 
 def search() : 
 	result = []   
-	word = ""
 	similarity = []
 	hasil = []
+	word = ""
 	if (request.method == "POST") :
 		word = request.form.get("search")
+		input_query.append(word)
 		query_stemmed = search_engine.stemming(word)
 		key_query = search_engine.make_key(query_stemmed)     
 		for i in key_query : 
 			key_all.append(i) 
+			key_query_table.append(i)
 		for x in range(search_engine.length(list_content)):
 			vektor_result = search_engine.vectorizer(key_all,word)
 			vektor_konten = search_engine.vectorizer(key_all,list_content[x])
 			similarity.append(search_engine.cosine_similarity(vektor_result,vektor_konten))
-			hasil.append([nama_file[x],list_content[x],similarity])
+			hasil.append([nama_file[x],list_content[x],similarity[x]])
 		if result:
 			pass
 	return render_template("search.html",result=hasil,key=key_all)
@@ -69,9 +73,11 @@ def search() :
 @app.route('/printkey', methods=["GET","POST"])
 def printkey():
 	hasil_table = []
+	table_result = search_engine.vectorizer(key_query_table,input_query[0])
+	hasil_table.append([key_query_table,table_result])
 	for x in  range(search_engine.length(list_content)):
-		table_result = search_engine.vectorizer(key_query,list_content[x])
-		hasil_table.append([key_query,table_result])
+		table_result = search_engine.vectorizer(key_query_table,list_content[x])
+		hasil_table.append([key_query_table,table_result])
 	return render_template("key.html", key=key_all, hasil=hasil_table)
 
 if __name__ == '__main__':
