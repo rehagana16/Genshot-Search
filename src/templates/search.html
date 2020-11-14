@@ -26,8 +26,10 @@
             </div>
         </form>
 
-        {% for k in key %}
+        {% for i,j,k in result %}
         <p>
+            {{i}}
+            {{j}}
             {{k}}
         </p>
         {% endfor %}

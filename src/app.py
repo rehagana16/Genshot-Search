@@ -11,6 +11,7 @@ APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 nama_file = []
 isi_content = []
 array_nama = []
+list_content = []
 key_all = []
 
 @app.route("/")
@@ -37,7 +38,10 @@ def upload() :
 		document_content = search_engine.vectorizer(search_engine.make_key(hasil_stem),content)
 		array_nama.append([filename.rsplit('.',1)[0],document_content])
 		nama_file.append(filename.rsplit('.',1)[0])
-		isi_content.append(hasil_stem)
+		list_content.append(content)
+		key_content = search_engine.make_key(hasil_stem)
+		for i in key_content : 
+			key_all.append(i)
 	return render_template("upload_complete.html", name = array_nama)
 
 @app.route('/search',methods=["GET","POST"])   # link 127.0.0.1:5000/ 
@@ -46,23 +50,17 @@ def search() :
 	word = ""
 	similarity = []
 	hasil = []
-	vektor_konten = []
-	for _,j in array_nama :
-		vektor_konten.append(j)
 	if (request.method == "POST") :
 		word = request.form.get("search")
 		query_stemmed = search_engine.stemming(word)
-		key_query = search_engine.make_key(query_stemmed)
-		key_all.append(key_query)      
-		for x in range(search_engine.length(isi_content)):
-			key_content = search_engine.make_key(isi_content[x])
-			key_all.append(key_content)
-			
-		for x in range(search_engine.length(isi_content)+1):
-			vektor_result = search_engine.vectorizer(key_all[x],word)
-			similarity.append(search_engine.cosine_similarity(vektor_result,vektor_konten[x]))
-			hasil.append([nama_file[x],vektor_konten[x],similarity])
-
+		key_query = search_engine.make_key(query_stemmed)     
+		for i in key_query : 
+			key_all.append(i) 
+		for x in range(search_engine.length(list_content)):
+			vektor_result = search_engine.vectorizer(key_all,word)
+			vektor_konten = search_engine.vectorizer(key_all,list_content[x])
+			similarity.append(search_engine.cosine_similarity(vektor_result,vektor_konten))
+			hasil.append([nama_file[x],list_content[x],similarity])
 		if result:
 			pass
 	return render_template("search.html",result=hasil,key=key_all)
@@ -74,4 +72,5 @@ def printkey():
 
 if __name__ == '__main__':
    app.run(debug=True)
+
 
