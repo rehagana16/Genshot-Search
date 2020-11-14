@@ -1,14 +1,22 @@
+import numpy as ny
+import re
+from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer 
 from nltk.tokenize import word_tokenize 
+import math
+
+stop_words = set(stopwords.words('english'))
 
 def stemming(sentence):
    
-    ps = PorterStemmer() 
+    ps = PorterStemmer()
+    sentence = re.sub(r'[^\w\s]', '',sentence)
     words = word_tokenize(sentence) 
     hasil_stem = []
     for w in words: 
         hasil_stem.append(ps.stem(w))
-    return hasil_stem
+    removed_sw_words = [word for word in hasil_stem if word not in stop_words]
+    return removed_sw_words
 
 def length(sentence) :
     count = 0
@@ -45,6 +53,24 @@ def vectorizer(isi) :
         if (posisi != -1) :
             jumlah[posisi] += 1
     return jumlah
+
+def perkalian_dot(vektor1,vektor2) :
+    hasil_dot = 0
+    for i in range(length(vektor1)) :
+        hasil_dot += (vektor1[i]*vektor2[i])
+    return hasil_dot
+
+def panjang_vektor(vektor) : 
+    panjang = 0
+    for i in range(length(vektor)) :
+        panjang += vektor[i]*vektor[i]
+    panjangvektor = math.sqrt(panjang)
+    return(panjangvektor)
+
+def cosine_similarity(vektor1,vektor2) :
+    similarity = (perkalian_dot(vektor1,vektor2))/(panjang_vektor(vektor1)*panjang_vektor(vektor2))
+    return(similarity)
+
             
 def read_file(filename) :
     file = open(filename,"r")
