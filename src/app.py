@@ -8,12 +8,10 @@ app = Flask(__name__, template_folder='templates')
 
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 
-<<<<<<< HEAD
-=======
 nama_file = []
 isi_content = []
->>>>>>> 5e8beb8491d7827e3a5166b213e47331354eb36c
 array_nama = []
+key_all = []
 
 @app.route("/")
 def index():
@@ -28,10 +26,6 @@ def upload() :
 		os.mkdir(target)
 	
 	#document_array = {}
-<<<<<<< HEAD
-	
-=======
->>>>>>> 5e8beb8491d7827e3a5166b213e47331354eb36c
 	for file in request.files.getlist("file") :
 		print(file)
 		filename = file.filename
@@ -48,23 +42,35 @@ def upload() :
 
 @app.route('/search',methods=["GET","POST"])   # link 127.0.0.1:5000/ 
 def search() : 
-	result=[]   
-	word =""
+	result = []   
+	word = ""
 	similarity = []
 	hasil = []
 	vektor_konten = []
 	for _,j in array_nama :
 		vektor_konten.append(j)
 	if (request.method == "POST") :
-		word = request.form.get("search")       
+		word = request.form.get("search")
+		query_stemmed = search_engine.stemming(word)
+		key_query = search_engine.make_key(query_stemmed)
+		key_all.append(key_query)      
 		for x in range(search_engine.length(isi_content)):
 			key_content = search_engine.make_key(isi_content[x])
-			vektor_result = search_engine.vectorizer(key_content,word)
+			key_all.append(key_content)
+			
+		for x in range(search_engine.length(isi_content)+1):
+			vektor_result = search_engine.vectorizer(key_all[x],word)
 			similarity.append(search_engine.cosine_similarity(vektor_result,vektor_konten[x]))
 			hasil.append([nama_file[x],vektor_konten[x],similarity])
+
 		if result:
 			pass
-	return render_template("search.html",result=hasil)
+	return render_template("search.html",result=hasil,key=key_all)
+
+@app.route('/printkey', methods=["GET","POST"])
+def printkey():
+	return render_template("key.html", key=key_all)
+
 
 if __name__ == '__main__':
    app.run(debug=True)
