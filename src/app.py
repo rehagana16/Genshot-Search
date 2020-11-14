@@ -30,7 +30,7 @@ def upload() :
 		file.save(destination)
 		document_content = read_file.text_read(filename)
 		document_content = search_engine.stemming(document_content)
-		array_nama.append([filename,document_content])
+		array_nama.append([filename.rsplit('.',1)[0],document_content])
 	return render_template("upload_complete.html", name = array_nama)
 
 @app.route('/search',methods=["GET","POST"])   # link 127.0.0.1:5000/ 
