@@ -7,8 +7,6 @@ import math
 
 stop_words = set(stopwords.words('english'))
 
-stop_words = set(stopwords.words('english'))
-
 def stemming(sentence):
    
     ps = PorterStemmer()
