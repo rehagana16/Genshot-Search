@@ -1,4 +1,5 @@
 import numpy as ny
+import re
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer 
 from nltk.tokenize import word_tokenize 
@@ -6,10 +7,14 @@ import math
 
 stop_words = set(stopwords.words('english'))
 
+stop_words = set(stopwords.words('english'))
+
 def stemming(sentence):
    
     ps = PorterStemmer()
     words = word_tokenize(sentence) 
+    removed_sw_words = [word for word in words if word not in stop_words]
+    removed_punc_words = re.sub(r'[^\w\s]', '', removed_sw_words)
     hasil_stem = []
     for w in words: 
         hasil_stem.append(ps.stem(w))
