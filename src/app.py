@@ -13,6 +13,7 @@ isi_content = []
 array_nama = []
 list_content = []
 key_all = []
+key_query = []
 
 @app.route("/")
 def index():
@@ -67,10 +68,11 @@ def search() :
 
 @app.route('/printkey', methods=["GET","POST"])
 def printkey():
-	return render_template("key.html", key=key_all)
-
+	hasil_table = []
+	for x in  range(search_engine.length(list_content)):
+		table_result = search_engine.vectorizer(key_query,list_content[x])
+		hasil_table.append([key_query,table_result])
+	return render_template("key.html", key=key_all, hasil=hasil_table)
 
 if __name__ == '__main__':
    app.run(debug=True)
-
-
