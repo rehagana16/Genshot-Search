@@ -46,6 +46,11 @@ def vectorizer(isi) :
             jumlah[posisi] += 1
     return jumlah
             
-
+def read_file(filename) :
+    file = open(filename,"r")
+    content = my_file.read()
+    content_list = content.split(",")
+    file.close()
+    print(content_list)
 
     
