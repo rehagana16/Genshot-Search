@@ -2,10 +2,13 @@ import numpy as ny
 from nltk.stem import PorterStemmer 
 from nltk.tokenize import word_tokenize 
 
+stop_words = set(stopwords.words('english'))
+
 def stemming(sentence):
    
-    ps = PorterStemmer() 
+    ps = PorterStemmer()
     words = word_tokenize(sentence) 
+    removed_sw_words = [word for word in words if word not in stop_words]
     hasil_stem = []
     for w in words: 
         hasil_stem.append(ps.stem(w))
