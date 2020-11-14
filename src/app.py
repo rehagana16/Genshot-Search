@@ -8,6 +8,8 @@ app = Flask(__name__, template_folder='templates')
 
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 
+array_nama = []
+
 @app.route("/")
 def index():
 	return render_template("upload.html")
@@ -21,7 +23,7 @@ def upload() :
 		os.mkdir(target)
 	
 	#document_array = {}
-	array_nama = []
+	
 	for file in request.files.getlist("file") :
 		print(file)
 		filename = file.filename
