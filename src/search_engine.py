@@ -44,9 +44,8 @@ def make_key(isi) :
             key.append(i)
     return key
 
-def vectorizer(isi) :
+def vectorizer(key,isi) :
     hasil_stem = stemming(isi)
-    key = make_key(hasil_stem)
     jumlah = [0 for i in range(length(key))]
     for i in (stemming(isi)) :
         posisi = search(key,i)

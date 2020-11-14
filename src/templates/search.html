@@ -15,7 +15,7 @@
     <body>
         <h2>Search Engine</h2>
 
-        <form method = "post">
+        <form method = "post" action = "{{ url_for('search') }}">
             <div class="form-row">
                 <div class="col-10">
                     <input type="text" class="form-control" placeholder="Search.." name = "search">
@@ -24,10 +24,12 @@
                     <button type="button" class="btn btn-dark">Search</button>
                 </div>
             </div>
-          </form>
+        </form>
 
-        {% for r in result %}
+        {% for p,q,r in result %}
         <p>
+            {{p}}
+            {{q}}
             {{r}}
         </p>
         {% endfor %}
