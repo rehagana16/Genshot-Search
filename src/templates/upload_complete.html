@@ -15,5 +15,9 @@
 <body>
 Congratulations! File successfully uploaded
 <a href="/search">Back to Search Page</a>
+{% for n,c in name %}
+    <p> {{n}} </p>
+    <p> {{c}} </p>
+{%endfor%}
 </body>
 </html>
