@@ -13,7 +13,7 @@ def index():
 
 @app.route("/upload", methods= ['POST'])
 def upload() :
-	target = os.path.join(APP_ROOT, 'pdf_database/')
+	target = os.path.join(APP_ROOT, 'txt_database/')
 	print(target)
 
 	if not os.path.isdir(target) :
@@ -25,7 +25,7 @@ def upload() :
 		destination = "/".join([target, filename])
 		print(destination)
 		file.save(destination)
-		
+
 	return render_template("upload_complete.html")
 
 @app.route('/search',methods=["GET","POST"])   # link 127.0.0.1:5000/ 
@@ -38,7 +38,6 @@ def search() :
          if result:
 	         pass
 	return render_template("search.html",result=result,word=word)
-
 
 if __name__ == '__main__':
    app.run(debug=True)
