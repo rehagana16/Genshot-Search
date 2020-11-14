@@ -10,9 +10,8 @@ stop_words = set(stopwords.words('english'))
 def stemming(sentence):
    
     ps = PorterStemmer()
+    sentence = re.sub(r'[^\w\s]', '',sentence)
     words = word_tokenize(sentence) 
-    removed_sw_words = [word for word in words if word not in stop_words]
-    removed_punc_words = re.sub(r'[^\w\s]', '', removed_sw_words)
     hasil_stem = []
     for w in words: 
         hasil_stem.append(ps.stem(w))
