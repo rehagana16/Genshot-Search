@@ -69,6 +69,8 @@ def panjang_vektor(vektor) :
 
 def cosine_similarity(vektor1,vektor2) :
 	similarity = (perkalian_dot(vektor1,vektor2))/(panjang_vektor(vektor1)*panjang_vektor(vektor2))
+	similarity *= 100
+	similarity = "{:.2f}".format(similarity)
 	return(similarity)
 
 def hitung_jumlah_kata(document_content, jumlah_kata) :
@@ -97,4 +99,12 @@ def sort (nama, content, similarity) :
 				content[j+1] = temp3
 	return nama,content,similarity
 
+def search_content (list_content, search_key) :
+	found = false
+	for i in range(length(list_content)) :
+		if (list_content[i][0] == search_key) :
+			found = true
+			return i
+		else : 
+			return -1
 

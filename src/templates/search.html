@@ -26,12 +26,11 @@
             </div>
         </form>
 
-        {% for i,j,k in result %}
-        <p>
-            {{i}}
-            {{j}}
-            {{k}}
-        </p>
+        {% for i,j,k,l in result %}
+        <h3><a href = "#">{{i}}</a></h3>
+        <p>{{j}}</p>
+        <p>{{k}}</p>
+        <p>{{l}} %</p>
         {% endfor %}
 
         {% if error_message != "" %}        
@@ -40,6 +39,26 @@
         </p>
         {% endif %}
 
+        {%if length != 0 %}
+        <table class = "table">
+            <tr>
+                <th>Term</th>
+                <th>Query</th>
+                {% for i in range(length-1) %}
+                <th>Document {{i+1}}</th>
+                {%endfor%}
+            </tr>
+            {%for i in range(query_length)%}
+            <tr>
+                
+                <td>{{query[i]}}</td>
+                {%for j in range(length)%}
+                <td>{{vector[j][i]}}</td>
+                {%endfor%}
+            </tr>
+            {%endfor%}
+        </table>
+        {%endif%}
         <a href="/printkey">Print keys</a>
         <a href="/print_search_result">Print Search Result</a>
     </body>
