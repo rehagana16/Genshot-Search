@@ -7,7 +7,7 @@ Data Anggota Kelompok Tubes 2 Algeo :
 3. Rehagana Kevin Christian Sembiring (13519117)
 
 ## Project : Search Engine
-Membuat search engine sederhana
+Membuat search engine sederhana yang disusun berdasarkan cosine similarity.
  
 Penjelasan :
 * Folder src berisi source code dari program python
