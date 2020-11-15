@@ -35,21 +35,24 @@ def upload() :
 	
 	#document_array = {}
 	for file in request.files.getlist("file") :
-		print(file)
-		filename = file.filename
-		destination = "/".join([target, filename])
-		print(destination)
-		file.save(destination)
-		content = read_file.text_read(filename)
-		hasil_stem = search_engine.stemming(content)
-		document_content = search_engine.vectorizer(search_engine.make_key(hasil_stem),content)
-		array_nama.append([filename.rsplit('.',1)[0],document_content])
-		nama_file.append(filename.rsplit('.',1)[0])
-		list_content.append(content)
-		key_content = search_engine.make_key(hasil_stem)
-		for i in key_content : 
-			key_all.append(i)
-	return render_template("upload_complete.html", name = array_nama)
+		if file :
+			filename = file.filename
+			destination = "/".join([target, filename])
+			file.save(destination)
+			content = read_file.text_read(filename)
+			hasil_stem = search_engine.stemming(content)
+			document_content = search_engine.vectorizer(search_engine.make_key(hasil_stem),content)
+			array_nama.append([filename.rsplit('.',1)[0],document_content])
+			nama_file.append(filename.rsplit('.',1)[0])
+			list_content.append(content)
+			key_content = search_engine.make_key(hasil_stem)
+			for i in key_content : 
+				key_all.append(i)
+	if file: 
+		return render_template("upload_complete.html", name = array_nama)
+	else:		#kasus array kosong
+		print("No file selected.")
+		return render_template("upload.html", error_message = "No files selected")
 
 @app.route('/search',methods=["GET","POST"])   # link 127.0.0.1:5000/ 
 def search() : 
