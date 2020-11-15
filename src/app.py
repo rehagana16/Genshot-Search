@@ -35,7 +35,7 @@ def upload() :
 	
 	#document_array = {}
 	for file in request.files.getlist("file") :
-		if file :
+		if file :	#kasus saat upload file ada dipilih file untuk diupload
 			filename = file.filename
 			destination = "/".join([target, filename])
 			file.save(destination)
@@ -48,9 +48,9 @@ def upload() :
 			key_content = search_engine.make_key(hasil_stem)
 			for i in key_content : 
 				key_all.append(i)
-	if file: 
+	if file: 	#kasus saat upload file ada dipilih file untuk diupload
 		return render_template("upload_complete.html", name = array_nama)
-	else:		#kasus array kosong
+	else:		#kasus saat upload file tidak dipilih file apa-apa
 		print("No file selected.")
 		return render_template("upload.html", error_message = "No files selected")
 

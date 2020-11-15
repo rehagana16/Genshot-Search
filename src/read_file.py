@@ -1,4 +1,5 @@
 import os
+import codecs
 
 def text_to_list_of_string(filename):
     fpath = os.path.join('txt_database', filename)
@@ -10,7 +11,7 @@ def text_to_list_of_string(filename):
 
 def text_read(filename):
     fpath = os.path.join('txt_database', filename)
-    file = open(fpath,"r")
+    file = codecs.open(fpath,"r", encoding = 'utf-8')
     content = file.read()
     file.close()
     return(content)
