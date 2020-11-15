@@ -72,7 +72,9 @@ def search() :
 			vektor_result = search_engine.vectorizer(key_all,word)
 			vektor_konten = search_engine.vectorizer(key_all,list_content[x])
 			similarity.append(search_engine.cosine_similarity(vektor_result,vektor_konten))
-			hasil.append([nama_file[x],list_content[x],similarity[x]])
+		nama_file1,list_content1,similarity1 = search_engine.sort(nama_file,list_content, similarity)
+		for x in range(search_engine.length(list_content)):
+			hasil.append([nama_file1[x], list_content1[x],similarity1[x]])
 		if result:
 			pass
 	return render_template("search.html",result=hasil,key=key_all)
