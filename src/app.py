@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 
 from flask import Flask,render_template,request,jsonify
-import os  
+from nltk.tokenize import word_tokenize
+import os
+import re  
 import search_engine
 import read_file                                     
 app = Flask(__name__, template_folder='templates') 
@@ -15,6 +17,7 @@ list_content = []
 key_all = []
 key_query_table = []
 input_query = []
+jumlah_kata = []
 
 
 @app.route("/")
@@ -79,6 +82,18 @@ def printkey():
 		table_result = search_engine.vectorizer(key_query_table,list_content[x])
 		hasil_table.append([key_query_table,table_result])
 	return render_template("key.html", key=key_all, hasil=hasil_table)
+
+@app.route('/print_search_result', methods=["GET","POST"])
+def print_search_result():
+	coba_kata = []
+	for x in  range(search_engine.length(list_content)):
+		array_kata = word_tokenize(list_content[x])
+		coba_kata.append(array_kata)
+		#count_kata = 0
+		#for i in array_kata :
+			#count_kata += 1
+		#jumlah_kata.append(count_kata)
+	return render_template("search_result.html", jumlah_kata=coba_kata)
 
 if __name__ == '__main__':
    app.run(debug=True)
