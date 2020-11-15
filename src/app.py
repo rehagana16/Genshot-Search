@@ -18,6 +18,7 @@ key_all = []
 key_query_table = []
 input_query = []
 jumlah_kata = []
+kalimat_pertama = []
 
 
 @app.route("/")
@@ -90,15 +91,10 @@ def printkey():
 
 @app.route('/print_search_result', methods=["GET","POST"])
 def print_search_result():
-	coba_kata = []
 	for x in  range(search_engine.length(list_content)):
-		array_kata = word_tokenize(list_content[x])
-		coba_kata.append(array_kata)
-		#count_kata = 0
-		#for i in array_kata :
-			#count_kata += 1
-		#jumlah_kata.append(count_kata)
-	return render_template("search_result.html", jumlah_kata=coba_kata)
+		search_engine.hitung_jumlah_kata(list_content[x],jumlah_kata)
+		search_engine.ambil_kalimat_pertama(list_content[x],kalimat_pertama)
+	return render_template("search_result.html", jumlah_kata=jumlah_kata, kalimat_pertama=kalimat_pertama)
 
 if __name__ == '__main__':
    app.run(debug=True)
