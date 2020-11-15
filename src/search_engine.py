@@ -82,5 +82,19 @@ def ambil_kalimat_pertama(document_content, kalimat_pertama) :
 	sentences = nltk.sent_tokenize(document_content)
 	kalimat_pertama.append(sentences[0])
 
+def sort (nama, content, similarity) :
+	for i in range(length(similarity) -1) :
+		for j in range(length(similarity)-1) : 
+			if (similarity[j] < similarity[j+1]) :
+				temp = similarity[j]
+				similarity[j] = similarity[j+1]
+				similarity[j+1] = temp
+				temp2 = nama[j]
+				nama[j] = nama[j+1]
+				nama[j+1] = temp2
+				temp3 = content[j]
+				content[j] = content[j+1]
+				content[j+1] = temp3
+	return nama,content,similarity
 
 
