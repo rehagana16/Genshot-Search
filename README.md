@@ -8,10 +8,14 @@ Data Anggota Kelompok Tubes 2 Algeo :
 
 ## Project : Search Engine
 Membuat search engine sederhana yang disusun berdasarkan cosine similarity.
- 
+
 Penjelasan :
 * Folder src berisi source code dari program python
 * Folder doc berisi laporan
+
+## Screenshots
+
+![Screenshots](https:gif kita)
 
 ## Setup
 * Python : https://www.python.org/downloads/
@@ -21,4 +25,4 @@ Penjelasan :
 
 
 ## Status
-Project is: _in progress_
+Project is: _Complete_
