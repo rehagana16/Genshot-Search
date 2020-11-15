@@ -4,6 +4,12 @@ import requests
 import os
 import codecs
 
+url = 'https://genshin-impact.fandom.com/wiki/'
+
+character_name_array = ['Amber', 'Barbara', 'Beidou', 'Bennett', 'Chongyun', 'Diluc', 'Diona', 'Fischl', 'Jean', 'Kaeya', 'Keqing', 'Klee', 'Lisa', 'Mona', 'Ningguang', 'Noelle', 'Qiqi', 'Razor', 'Sucrose', 'Tartaglia', 'Traveler', 'Venti', 'Xiangling', 'Xingqiu']
+
+url += character_name_array[x]
+
 source = requests.get('https://genshin-impact.fandom.com/wiki/Diona').text
 soup = BeautifulSoup(source, 'lxml')
 
