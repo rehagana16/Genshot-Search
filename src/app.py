@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from flask import Flask,render_template,request,jsonify
+from flask import Flask,render_template,request,jsonify,redirect
 from nltk.tokenize import word_tokenize
 import os
 import re  
@@ -49,7 +49,7 @@ def upload() :
 			for i in key_content : 
 				key_all.append(i)
 	if file: 	#kasus saat upload file ada dipilih file untuk diupload
-		return render_template("upload_complete.html", name = array_nama)
+		return redirect('/search')
 	else:		#kasus saat upload file tidak dipilih file apa-apa
 		print("No file selected.")
 		return render_template("upload.html", error_message = "No files selected")
@@ -59,6 +59,8 @@ def search() :
 	result = []   
 	similarity = []
 	hasil = []
+	hasil_table = []
+	vector_table = []
 	word = ""
 	if (request.method == "POST") :
 		word = request.form.get("search")
@@ -72,15 +74,25 @@ def search() :
 			for x in range(search_engine.length(list_content)):
 				vektor_result = search_engine.vectorizer(key_all,word)
 				vektor_konten = search_engine.vectorizer(key_all,list_content[x])
-				similarity.append(search_engine.cosine_similarity(vektor_result,vektor_konten))
+				similarity.append(float(search_engine.cosine_similarity(vektor_result,vektor_konten)))
 			nama_file1,list_content1,similarity1 = search_engine.sort(nama_file,list_content, similarity)
+			for x in  range(search_engine.length(list_content1)):
+				search_engine.hitung_jumlah_kata(list_content1[x],jumlah_kata)
+				search_engine.ambil_kalimat_pertama(list_content1[x],kalimat_pertama)
 			for x in range(search_engine.length(list_content)):
-				hasil.append([nama_file1[x], list_content1[x],similarity1[x]])
+				hasil.append([nama_file1[x],jumlah_kata[x],kalimat_pertama[x],similarity1[x]])
+			table_result = search_engine.vectorizer(key_query_table,input_query[0])
+			vector_table.append(table_result)
+			hasil_table.append([key_query_table,table_result])
+			for x in  range(search_engine.length(list_content)):
+				table_result = search_engine.vectorizer(key_query_table,list_content[x])
+				vector_table.append(table_result)
+				hasil_table.append([key_query_table,table_result])
 			if result:
 				pass
 		else :
 			return render_template("search.html",error_message="No results found") 
-	return render_template("search.html",result=hasil,key=key_all)
+	return render_template("search.html",result=hasil ,key=key_all, query = key_query_table,length = search_engine.length(vector_table),query_length = search_engine.length(key_query_table),vector = vector_table)
 
 @app.route('/printkey', methods=["GET","POST"])
 def printkey():
