@@ -14,7 +14,8 @@ Penjelasan :
 * Folder doc berisi laporan
 
 ## Setup
-
+* Python : https://www.python.org/downloads/
+* Flask : `pip install flask`
 
 ## Code Examples
 `code kita`
