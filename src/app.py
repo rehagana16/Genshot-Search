@@ -76,12 +76,17 @@ def search() :
 @app.route('/printkey', methods=["GET","POST"])
 def printkey():
 	hasil_table = []
+	vector_table = []
 	table_result = search_engine.vectorizer(key_query_table,input_query[0])
+	vector_table.append(table_result)
 	hasil_table.append([key_query_table,table_result])
 	for x in  range(search_engine.length(list_content)):
 		table_result = search_engine.vectorizer(key_query_table,list_content[x])
+		vector_table.append(table_result)
 		hasil_table.append([key_query_table,table_result])
-	return render_template("key.html", key=key_all, hasil=hasil_table)
+	return render_template("key.html", key=key_all, hasil=hasil_table, result = vector_table, 
+							query = key_query_table, length = search_engine.length(vector_table),
+							query_length = search_engine.length(key_query_table))
 
 @app.route('/print_search_result', methods=["GET","POST"])
 def print_search_result():
