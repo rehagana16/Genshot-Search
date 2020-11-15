@@ -64,19 +64,22 @@ def search() :
 		word = request.form.get("search")
 		input_query.append(word)
 		query_stemmed = search_engine.stemming(word)
-		key_query = search_engine.make_key(query_stemmed)     
-		for i in key_query : 
-			key_all.append(i) 
-			key_query_table.append(i)
-		for x in range(search_engine.length(list_content)):
-			vektor_result = search_engine.vectorizer(key_all,word)
-			vektor_konten = search_engine.vectorizer(key_all,list_content[x])
-			similarity.append(search_engine.cosine_similarity(vektor_result,vektor_konten))
-		nama_file1,list_content1,similarity1 = search_engine.sort(nama_file,list_content, similarity)
-		for x in range(search_engine.length(list_content)):
-			hasil.append([nama_file1[x], list_content1[x],similarity1[x]])
-		if result:
-			pass
+		if query_stemmed :
+			key_query = search_engine.make_key(query_stemmed)     
+			for i in key_query : 
+				key_all.append(i) 
+				key_query_table.append(i)
+			for x in range(search_engine.length(list_content)):
+				vektor_result = search_engine.vectorizer(key_all,word)
+				vektor_konten = search_engine.vectorizer(key_all,list_content[x])
+				similarity.append(search_engine.cosine_similarity(vektor_result,vektor_konten))
+			nama_file1,list_content1,similarity1 = search_engine.sort(nama_file,list_content, similarity)
+			for x in range(search_engine.length(list_content)):
+				hasil.append([nama_file1[x], list_content1[x],similarity1[x]])
+			if result:
+				pass
+		else :
+			return render_template("search.html",error_message="No results found") 
 	return render_template("search.html",result=hasil,key=key_all)
 
 @app.route('/printkey', methods=["GET","POST"])
