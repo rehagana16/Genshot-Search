@@ -18,7 +18,7 @@ Penjelasan :
 * Flask : `pip install flask`
 
 ## Code Examples
-`code kita`
+
 
 ## Status
 Project is: _in progress_
