@@ -68,16 +68,12 @@ def panjang_vektor(vektor) :
 	return(panjangvektor)
 
 def cosine_similarity(vektor1,vektor2) :
-<<<<<<< HEAD
-	similarity = (perkalian_dot(vektor1,vektor2))/(panjang_vektor(vektor1)*panjang_vektor(vektor2))
-	similarity *= 100
-	similarity = "{:.2f}".format(similarity)
-=======
 	if ((panjang_vektor(vektor1)*panjang_vektor(vektor2) == 0)) :
 		similarity = 0.0
 	else :
 		similarity = (perkalian_dot(vektor1,vektor2))/(panjang_vektor(vektor1)*panjang_vektor(vektor2))
->>>>>>> 21dd95c22fb776baded715063dc3dec7df766b5f
+	similarity *= 100
+	similarity = "{:.2f}".format(similarity)
 	return(similarity)
 
 def hitung_jumlah_kata(document_content, jumlah_kata) :

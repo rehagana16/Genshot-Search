@@ -80,7 +80,7 @@ def search() :
 				search_engine.hitung_jumlah_kata(list_content1[x],jumlah_kata)
 				search_engine.ambil_kalimat_pertama(list_content1[x],kalimat_pertama)
 			for x in range(search_engine.length(list_content)):
-				hasil.append([nama_file1[x],jumlah_kata[x],kalimat_pertama[x],similarity1[x]])
+				hasil.append([nama_file1[x],jumlah_kata[x],kalimat_pertama[x],similarity1[x],list_content1[x]])
 			table_result = search_engine.vectorizer(key_query_table,input_query[0])
 			vector_table.append(table_result)
 			hasil_table.append([key_query_table,table_result])
@@ -115,6 +115,10 @@ def print_search_result():
 		search_engine.hitung_jumlah_kata(list_content[x],jumlah_kata)
 		search_engine.ambil_kalimat_pertama(list_content[x],kalimat_pertama)
 	return render_template("search_result.html", jumlah_kata=jumlah_kata, kalimat_pertama=kalimat_pertama)
+
+@app.route('/document_details/<string:nama_dokumen>/<string:konten>', methods=["GET","POST"])
+def document_details(nama_dokumen, konten):
+	return render_template("document_details.html", nama_dokumen=nama_dokumen, konten=konten)
 
 if __name__ == '__main__':
    app.run(debug=True)
