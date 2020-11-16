@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+          <!-- bootstrapcdn -->
+         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+        <!--Google apis-->
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Bad Script' rel='stylesheet'>    
+
+        <!--bootstrapcdn-->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+        <!--fontawesome-->
+        <script src="https://kit.fontawesome.com/d27d8e575b.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">    
+    </head>
+    <body style = "background-color: white;">
+
+        <section id ="konsep-singkat">
+            <h1 class = "konsep-h1"> Search Engine </h1>
+            <i class="fas fa-quote-left fa-2x"></i>
+            <span class = "konsep-text">Search engine adalah sebuah program yang berfungsi untuk membantu pengguna mencari dokumen-dokumen yang berisikan informasi yang diinginkan oleh pengguna. Dokumen didapat melalui hasil webscraping dari sebuah website.</span>
+            <i class="fas fa-quote-right fa-2x"></i>
+        </section>
+
+        <section id = "how-to-use">
+            <h1 style = "margin-bottom: 50px;">How to use?</h1>
+            <table cellspacing = "20" style="margin: 25px;">
+                <tr>
+                  <td style="padding-right: 20px;"><i class="fas fa-sign-in-alt fa-4x" style="color : #14274e; padding-right:10px;"></i></td>
+                  <td>
+                    <h2 style="margin-bottom: 10px;">Input Query</h2>
+                    <p style="margin-bottom: 0;">User menginput query mengenai informasi yang diinginkan</p>
+                  </td>
+                </tr>
+            </table>
+
+            <table cellspacing = "20" style="margin: 25px; padding :25px 0">
+                <tr>
+                  <td style="padding-right: 25px;"><i class="fas fa-check-circle fa-4x" style="color : #14274e; padding-right:10px;"></i></td>
+                  <td>
+                    <h2 style="margin-bottom: 10px;">Similarity Check</h2>
+                    <p style="margin-bottom: 0;">Program akan mengecek similaritas antara query dengan dokumen file yang sudah diupload dengan cosine similarity dan mengurutkan dokumen berdasarkan tingkat kesamaannya.</p>
+                  </td>
+                </tr>
+            </table>
+
+            <table cellspacing = "20" style="margin: 40px; padding :25px 0">
+                <tr>
+                  <td style="padding-right: 20px;"><i class="fas fa-file-alt fa-4x" style="color : #14274e; padding-right:10px;"></i></td>
+                  <td>
+                    <h2 style="margin-bottom: 10px;">Choose the Document</h2>
+                    <p style="margin-bottom: 0;">User dapat memilih judul dokumen untuk mendapatkan informasi yang diinginkan</p>
+                  </td>
+                </tr>
+            </table>
+            
+            
+            
+        </section>
+
+        <section id="features">
+
+            <h1 class = "feature-h1">About Us</h1>
+
+            <div class="row">
+        
+              <div class="feature-box col-md-4">
+        
+                <img src="{{ url_for('static',filename='image/gambar_rei_circled.png')}}" />
+                <h3 class="features-font">Reinaldo Antolis</h3>
+                <p class = "feature-text">Anti Wibu Wibu Club</p>
+                <td><i class="fab fa-line"></i> <span class = "feature-text" style="margin-left:0; display: inline-block;"> : magicianreinaldo</span></td>
+        
+              </div>
+        
+              <div class="feature-box col-md-4">
+        
+                <img src="{{ url_for('static',filename='image/gambar_fang_circled.png')}}" />
+                <h3 class="features-font">Wilbert Fangderson</h3>
+                <p class = "feature-text">Sedang Mencari Jati Diri</p>
+                <td><i class="fab fa-line"></i>  <span class = "feature-text" style="margin-left:0;"> : wilbertf</span></td>
+        
+              </div>
+        
+              <div class="feature-box col-md-4">
+        
+                <img src="{{ url_for('static',filename='image/gambar_haga_circled.png')}}" />
+                <h3 class="features-font">Rehagana Sembiring</h3>
+                <p class = "feature-text">Need Keqing right now</p>
+                <td><i class="fab fa-line"></i>  <span class = "feature-text" style="margin:0;"> : rehagana16</span></td>
+        
+              </div>
+        
+            </div>
+        
+          </section>
+    </body>
+</html>
