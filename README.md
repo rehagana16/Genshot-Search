@@ -13,16 +13,9 @@ Penjelasan :
 * Folder src berisi source code dari program python
 * Folder doc berisi laporan
 
-## Screenshots
-
-![Screenshots](https:gif kita)
-
 ## Setup
 * Python : https://www.python.org/downloads/
 * Flask : `pip install flask`
-
-## Code Examples
-
 
 ## Status
 Project is: _Complete_
