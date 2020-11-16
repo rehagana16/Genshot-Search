@@ -83,7 +83,7 @@ def search() :
 				pass
 		else :
 			return render_template("search.html",error_message="No results found") 
-	return render_template("search.html",result=hasil ,key=key_all, query = key_query_table,length = search_engine.length(vector_table),query_length = search_engine.length(key_query_table),vector = vector_table)
+	return render_template("search.html",result=hasil ,key=key_all, query = key_query_table,length = search_engine.length(vector_table),query_length = search_engine.length(key_query_table),vector = vector_table, error_message = "")
 
 def printkey():
 	hasil_table = []

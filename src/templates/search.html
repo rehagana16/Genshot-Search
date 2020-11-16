@@ -26,6 +26,10 @@
             p{
                 color : #eeeeee;
             }
+
+            td{
+                color : #eeeeee;
+            }
         </style>
     </head>
     <body>
@@ -45,7 +49,13 @@
         </form>
 
         
+        {% if error_message != "" %}        
+        <p>
+            {{error_message}}
+        </p>
+        {% endif %}
 
+        {%if error_message == "" %}
         {% for i,j,k,l,m in result %}
         <h4><a href = "/document_details/{{i}}/{{m}}">{{i}}</a></h4>
         <p style="margin-bottom:5px;"> Jumlah Kata : {{j}}</p>
@@ -53,14 +63,8 @@
         <p>{{k}}</p>
         {% endfor %}
 
-        {% if error_message != "" %}        
-        <p>
-            {{error_message}}
-        </p>
-        {% endif %}
 
-        {% if error_message == ""%}
-        {%if length != 0 %}
+        
         <table class = "table">
             <tr>
                 <th>Term</th>
@@ -79,9 +83,8 @@
             </tr>
             {%endfor%}
         </table>
-        {%endif%}
-        {%endif%}
     </div>
+    {%endif%}
     <a href="/perihal">Perihal</a>
 
     </body>
