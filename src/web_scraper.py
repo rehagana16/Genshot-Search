@@ -9,7 +9,7 @@ import codecs
 
 
 def web_scraping(filename_scraping, content_scraping) :
-    character_name_array = ['Barbara', 'Beidou', 'Bennett', 'Chongyun', 'Diluc', 'Diona', 'Fischl', 'Jean', 'Kaeya', 'Keqing', 'Klee', 'Lisa', 'Mona', 'Ningguang', 'Noelle', 'Qiqi', 'Razor', 'Sucrose', 'Tartaglia', 'Traveler', 'Venti', 'Xiangling', 'Xingqiu']
+    character_name_array = ['Barbara', 'Beidou', 'Bennett', 'Chongyun', 'Diluc', 'Fischl', 'Jean', 'Kaeya', 'Keqing', 'Klee', 'Lisa', 'Mona', 'Ningguang', 'Noelle', 'Qiqi', 'Razor', 'Sucrose', 'Tartaglia', 'Traveler', 'Venti', 'Xiangling', 'Xingqiu']
     for i in range (len(character_name_array)) :
         url = 'https://genshin-impact.fandom.com/wiki/'
         url += character_name_array[i]
