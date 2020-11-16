@@ -17,6 +17,16 @@ Penjelasan :
 ## Setup
 * Python : https://www.python.org/downloads/
 * Flask : `pip install flask`
+* Numpy : `pip install numpy`
+* Nltk : `pip install nltk`
+* Beautifulsoup4 : `pip install beautifulsoup4`
+* Requests : `pip install requests`
+
+## Cara menjalankan program
+* Clone github
+* Pindah directory ke folder hasil clone github
+* Jalankan perintah `python app.py`
+* Copy url yang diberi dan jalankan di website
 
 ## Status
 Project is: _Complete_
