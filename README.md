@@ -11,6 +11,7 @@ Membuat search engine sederhana yang disusun berdasarkan cosine similarity.
 
 Penjelasan :
 * Folder src berisi source code dari program python
+* Folder test berisi dokumen uji
 * Folder doc berisi laporan
 
 ## Setup
