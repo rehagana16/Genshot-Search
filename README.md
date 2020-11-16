@@ -14,6 +14,13 @@ Penjelasan :
 * Folder test berisi dokumen uji
 * Folder doc berisi laporan
 
+## Features
+* Web scraping
+* Searching
+* Table of term
+* Jumlah kata per dokumen
+* Tingkat kemiripan query dengan dokumen
+
 ## Setup
 * Python : https://www.python.org/downloads/
 * Flask : `pip install flask`
