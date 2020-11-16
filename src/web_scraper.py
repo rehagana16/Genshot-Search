@@ -26,8 +26,9 @@ def web_scraping(filename_scraping, content_scraping) :
         content_scraping.append(character_description)
 
         #buat save hasil scraping ke file .txt
+
         txt_name = character_name + str('.txt')
-        fpath = os.path.join('txt_database', txt_name)
+        fpath = os.path.join('C:\\Users\\user\\Desktop\\Tubes Algeo Again\\Algeo02-19015\\test', txt_name)
         f = codecs.open(fpath,"w", encoding = 'utf-8')
         f.write(character_description)
         f.close()
