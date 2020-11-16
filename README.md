@@ -26,6 +26,7 @@ Penjelasan :
 ## Cara menjalankan program
 * Clone github
 * Pindah directory ke folder hasil clone github
+* Pindah directory ke src
 * Jalankan perintah `python app.py`
 * Copy url yang diberi dan jalankan di website
 
