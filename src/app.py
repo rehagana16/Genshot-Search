@@ -100,5 +100,9 @@ def printkey():
 def document_details(nama_dokumen, konten):
 	return render_template("document_details.html", nama_dokumen=nama_dokumen, konten=konten)
 
+@app.route('/perihal') 
+def perihal(): 
+	return render_template("perihal.html")
+
 if __name__ == '__main__':
    app.run(debug=True)

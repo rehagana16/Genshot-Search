@@ -103,10 +103,10 @@ def sort (nama, content, similarity) :
 	return nama,content,similarity
 
 def search_content (list_content, search_key) :
-	found = false
+	found = False
 	for i in range(length(list_content)) :
 		if (list_content[i][0] == search_key) :
-			found = true
+			found = True
 			return i
 		else : 
 			return -1

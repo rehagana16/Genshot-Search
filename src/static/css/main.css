@@ -1,8 +1,7 @@
 /**********TAG SELECTOR**************/
 body{
-    margin : 20px;
-    background-image : url(../image/genshin_wallpaper.jpg);
     background-size: 100%;
+    font-family:'Montserrat';
 }
 
 h2 {
@@ -12,4 +11,88 @@ th{
     color : white;
     background-color: black;
 }
+
+img{
+    width : 100px;
+    padding-bottom: 20px;
+}
+
+span{
+    margin :0;
+}
 /*********CLASS SELECTOR*************/
+/*features section*/
+
+#features{
+    padding : 7% 15%;
+    background-color: #9ba4b4;
+  }
+  
+  .features-font{
+    font-size : 1.5rem;
+    font-family : "Montserrat";
+    font-weight : 900;
+  }
+  
+  .features-icon{
+    color : #ef8172;
+    margin-bottom : 1rem;
+  }
+  
+  .features-icon:hover{
+    color : #ff4c68;
+  }
+  
+  .col-md-4{
+    text-align : center;
+  }
+  
+  .feature-box{
+    padding : 0 5%;
+  }
+  
+  .feature-text{
+    color : #4e4d4d;
+    margin-bottom : 0;
+  }
+  
+  .feature-h1 {
+      text-align : center;
+      font-family: 'Bad Script';
+      margin-bottom: 3rem;
+      font-weight: bold;
+  }
+
+/************** Konsep Singkat Section **************/
+#konsep-singkat{
+    padding : 7% 7%;
+    background-color: #14274e;
+}
+
+.konsep-h1{
+    text-align: center;
+    color : #f1f6f9;
+    font-family: Montserrat;
+    font-weight: 900;
+    margin-bottom : 50px;
+}
+
+.konsep-text{
+    text-align: justify;
+    color : #f1f6f9;
+    font-size : 1.5rem;
+    line-spacing : 1;
+}
+
+i{
+    color : #f1f6f9;
+}
+
+/***************how to use section **************/
+#how-to-use {
+    padding : 7% 15%;
+}
+
+
+
+  
