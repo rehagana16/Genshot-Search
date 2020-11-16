@@ -29,6 +29,10 @@ Penjelasan :
 * Beautifulsoup4 : `pip install beautifulsoup4`
 * Requests : `pip install requests`
 * lxml : `pip install lxml`
+* Stopwords : 
+`python`
+>>> import nltk
+>>> nltk.download('stopwords')
 
 ## Cara menjalankan program
 * Clone github
