@@ -21,6 +21,7 @@ Penjelasan :
 * Nltk : `pip install nltk`
 * Beautifulsoup4 : `pip install beautifulsoup4`
 * Requests : `pip install requests`
+* lxml : `pip install lxml`
 
 ## Cara menjalankan program
 * Clone github
