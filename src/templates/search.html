@@ -63,12 +63,12 @@
         <p>{{k}}</p>
         {% endfor %}
 
-
-        
         <table class = "table">
             <tr>
+                {%if length != 0%}
                 <th>Term</th>
                 <th>Query</th>
+                {%endif%}
                 {% for i in range(length-1) %}
                 <th>Document {{i+1}}</th>
                 {%endfor%}
