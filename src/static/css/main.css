@@ -67,6 +67,7 @@ span{
 #konsep-singkat{
     padding : 7% 7%;
     background-color: #14274e;
+    margin-top : 0;
 }
 
 .konsep-h1{
@@ -91,6 +92,10 @@ i{
 /***************how to use section **************/
 #how-to-use {
     padding : 7% 15%;
+}
+
+.search-result { 
+    padding : 2% 3%;
 }
 
 
