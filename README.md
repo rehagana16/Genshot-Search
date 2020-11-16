@@ -19,7 +19,8 @@ Penjelasan :
 * Flask : `pip install flask`
 * Numpy : `pip install numpy`
 * Nltk : `pip install nltk`
-* Beautifulsoup : `pip install bs4`
+* Beautifulsoup4 : `pip install beautifulsoup4`
+* Requests : `pip install requests`
 
 ## Cara menjalankan program
 * Clone github
