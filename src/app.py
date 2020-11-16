@@ -8,8 +8,6 @@ import search_engine
 import web_scraper                                     
 app = Flask(__name__, template_folder='templates') 
 
-APP_ROOT = os.path.dirname(os.path.abspath(__file__))
-
 filename_scraping = []
 content_scraping = []
 nama_file = []
