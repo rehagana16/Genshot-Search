@@ -30,9 +30,10 @@ Penjelasan :
 * Requests : `pip install requests`
 * lxml : `pip install lxml`
 * Stopwords : 
+Di terminal :
 `python`
->>> import nltk
->>> nltk.download('stopwords')
+`>>> import nltk`
+`>>> nltk.download('stopwords')`
 
 ## Cara menjalankan program
 * Clone github
